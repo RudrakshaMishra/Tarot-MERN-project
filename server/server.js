@@ -42,8 +42,22 @@ io.on("connection",(socket)=>{
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 //
+const allowedOrigins = [
+    "https://tarot-mern-project.vercel.app",
+    "http://localhost:5173", // if testing locally
+    "http://localhost:3000"
+];
+
 app.use(cors({
-    origin: "https://tarot-mern-project.vercel.app",
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1 && !origin.endsWith(".vercel.app")) {
+            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
     credentials: true,
     optionsSuccessStatus: 200
 }));
