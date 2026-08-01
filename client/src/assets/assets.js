@@ -15,11 +15,11 @@ import pic1 from './pic1.png';
 import pic2 from './pic2.png';
 import pic3 from './pic3.png';
 import pic4 from './pic4.png';
-import profile5 from './profile5.PNG';
-import profile4 from './profile4.PNG';
-import profile1 from './profile1.PNG';
-import profile2 from './profile2.PNG';
-import profile3 from './profile3.PNG';
+import profile5 from './Profile5.PNG';
+import profile4 from './Profile4.PNG';
+import profile1 from './Profile1.PNG';
+import profile2 from './Profile2.PNG';
+import profile3 from './Profile3.PNG';
 import Search from './Search.png';
 import send from './send.svg';
 
