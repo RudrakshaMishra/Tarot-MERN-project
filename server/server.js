@@ -44,7 +44,8 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 //
 app.use(cors({
     origin: "https://tarot-mern-project.vercel.app",
-    credentials: true
+    credentials: true,
+    optionsSuccessStatus: 200
 }));
 
 //Routes setup

@@ -24,7 +24,9 @@ export const AuthProvider = ({children})=>{
                 connectSocket(data.user)
             }
         } catch(error){
-            toast.error(error.message)
+            if (error.response && error.response.status !== 401) {
+                toast.error(error.message);
+            }
         }
     }
 
