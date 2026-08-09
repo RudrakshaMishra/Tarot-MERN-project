@@ -44,7 +44,8 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 //
 
 const allowedOrigins = [
-    "https://tarot-mern-project.vercel.app"
+    "https://tarot-mern-project.vercel.app",
+    "http://localhost:5173"
 ];
 
 app.use(cors({
@@ -59,12 +60,12 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 
-// Force handle preflight requests immediately
-app.options('*', cors({
-    origin: ["https://tarot-mern-project.vercel.app"],
-    credentials: true,
-    optionsSuccessStatus: 200
-}));
+// // Force handle preflight requests immediately
+// app.options('*', cors({
+//     origin: ["https://tarot-mern-project.vercel.app"],
+//     credentials: true,
+//     optionsSuccessStatus: 200
+// }));
 
 //Routes setup
 app.use("/api/status",(req,res)=> res.send("server is live"));
