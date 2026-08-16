@@ -43,26 +43,23 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 //
 
-const allowedOrigins = [
-    "https://tarot-mern-project.vercel.app",
-    "http://localhost:5173"
-];
-
+// const allowedOrigins = [
+//     "https://tarot-mern-project.vercel.app",
+//     "http://localhost:5173"
+// ];
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1 && !origin.endsWith(".vercel.app")) {
-            return callback(new Error('Not allowed by CORS'), false);
-        }
-        return callback(null, true);
-    },
+    origin: true, 
     credentials: true,
     optionsSuccessStatus: 200
 }));
-
-// // Force handle preflight requests immediately
-// app.options('*', cors({
-//     origin: ["https://tarot-mern-project.vercel.app"],
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         if (!origin) return callback(null, true);
+//         if (allowedOrigins.indexOf(origin) === -1 && !origin.endsWith(".vercel.app")) {
+//             return callback(new Error('Not allowed by CORS'), false);
+//         }
+//         return callback(null, true);
+//     },
 //     credentials: true,
 //     optionsSuccessStatus: 200
 // }));
